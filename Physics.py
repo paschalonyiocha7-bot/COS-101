@@ -1,37 +1,62 @@
+# STUDENT 5 - PHYSICS CALCULATOR
 
-def speed():
-    distance = float(input("Enter distance in metres: "))
-    time = float(input("Enter time in seconds: "))
-    return distance / time
+def average_velocity():
+    displacement = float(input("Enter displacement: "))
+    time = float(input("Enter time: "))
+    if time > 0:
+        print("Average Velocity =", displacement / time, "m/s")
+    else:
+        print("Invalid time")
 
+def distance():
+    velocity = float(input("Enter velocity: "))
+    time = float(input("Enter time: "))
+    print("Distance =", velocity * time, "meters")
 
-def force():
-    mass = float(input("Enter mass in kg: "))
-    acceleration = float(input("Enter acceleration in m/s²: "))
-    return mass * acceleration
+def displacement():
+    u = float(input("Enter initial velocity: "))
+    time = float(input("Enter time: "))
+    acceleration = float(input("Enter acceleration: "))
+    result = u * time + 0.5 * acceleration * time ** 2
+    print("Displacement =", result, "meters")
 
+def torque():
+    force = float(input("Enter force: "))
+    distance = float(input("Enter perpendicular distance: "))
+    print("Torque =", force * distance, "Nm")
 
-def weight():
-    mass = float(input("Enter mass in kg: "))
-    gravity = float(input("Enter gravitational acceleration: "))
-    return mass * gravity
+def mechanical_advantage():
+    load = float(input("Enter load: "))
+    effort = float(input("Enter effort: "))
+    if effort != 0:
+        print("Mechanical Advantage =", load / effort)
+    else:
+        print("Effort cannot be zero")
 
+while True:
+    print("\n===== PHYSICS CALCULATOR =====")
+    print("1. Average Velocity")
+    print("2. Distance")
+    print("3. Displacement")
+    print("4. Torque")
+    print("5. Mechanical Advantage")
 
-def kinetic_energy():
-    mass = float(input("Enter mass in kg: "))
-    velocity = float(input("Enter velocity in m/s: "))
-    return 0.5 * mass * velocity ** 2
+    choice = input("Choose an operation (1-5): ")
 
+    if choice == "1":
+        average_velocity()
+    elif choice == "2":
+        distance()
+    elif choice == "3":
+        displacement()
+    elif choice == "4":
+        torque()
+    elif choice == "5":
+        mechanical_advantage()
+    else:
+        print("Invalid choice")
 
-def potential_energy():
-    mass = float(input("Enter mass in kg: "))
-    gravity = float(input("Enter gravitational acceleration: "))
-    height = float(input("Enter height in metres: "))
-    return mass * gravity * height
-
-
-print("1. Speed =", speed())
-print("2. Force =", force())
-print("3. Weight =", weight())
-print("4. Kinetic Energy =", kinetic_energy())
-print("5. Potential Energy =", potential_energy())
+    repeat = input("Do you want to calculate again? (yes/no): ")
+    if repeat.lower() != "yes":
+        print("Thank you!")
+        break
